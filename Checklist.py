@@ -61,7 +61,7 @@ def test():
     select("R")
     list_all_items()
     print("Testing function")
-    select("M")
+    select("Q")
     list_all_items()
     print("Testing function")
     select("U")
