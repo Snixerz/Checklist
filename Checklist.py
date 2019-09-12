@@ -11,6 +11,7 @@ def read(index):
 # UPDATE
 def update(index, item):
     checklist[index] = item
+    return
 
 # DESTROY
 def destroy(index):
@@ -24,25 +25,54 @@ def list_all_items():
         index += 1
 
 def mark_completed(index):
-    update(index, "√" + checklist[item])
-    list_all_items()
+    update(index, "√" + checklist[index])
+    list_all_items()   
 
 def select(function_code):
 
     if function_code == "C":
-        input_item = user_input("Input item:")
+        input_item = user_input("Input item: ")
         create(input_item)
 
     elif function_code == "R":
         item_index = user_input("Index Number?")
-
-        print(read(int(item_index)))
-
+        print(checklist[int(item_index)])
+        
+    elif function_code == "U":
+        update(user_input("Input an index you'd like to change"),  user_input("Input what you'd like to update"))
+        
+    elif function_code == "D":
+        destroy(int(user_input("Please input an index for an element you would like to delete")))
+        
     elif function_code == "P":
         list_all_items()
+        
+    elif function_code == "Q":
+        return False
 
     else:
         print("Unknown Option")
+        
+def test():
+    print("Testing function")
+    select("C")
+    list_all_items()
+    print("Testing function")
+    select("R")
+    list_all_items()
+    print("Testing function")
+    select("M")
+    list_all_items()
+    print("Testing function")
+    select("U")
+    list_all_items()
+    print("Testing function")
+    select("D")
+    list_all_items()
+    print("Testing function")
+    select("P")
+    print("Tesing function")
+test()
 
 def user_input(prompt):
 
